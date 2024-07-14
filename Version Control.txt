@@ -1,0 +1,12 @@
+git init
+git add .
+git commit -m "Initial commit"
+git remote add origin URL
+git branch // check branch
+git push -u origin master
+
+https://github.com/chavanritesh18/BookStore-Mern-Stack.git
+
+To start the backend folder run  "npm start"
+
+To run the fronend folder run "npm run dev"

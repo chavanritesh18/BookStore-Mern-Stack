@@ -7,14 +7,11 @@ function Banner() {
         <div className="w-full order-2 md:order-1 md:w-1/2 mt-12 md:mt-32">
           <div className="space-y-12">
             <h1 className="text-4xl font-bold">
-              Hello , Welcome here to learn something{" "}
-              <span className="text-pink-500">new everyday!!!</span>
+            "Dive deep into knowledge, one captivating book {" "}
+              <span className="text-pink-500">at a time!!!</span>
             </h1>
             <p className="text-xl">
-              There are many variations of passages of Lorem Ipsum available,
-              but the majority have suffered alteration in some form, by
-              injected humour, or randomised words which don't look even
-              slightly believable.
+            Explore our bookstore app: a curated collection of literary treasures, offering seamless browsing and discovery for all book enthusiasts, ensuring endless reading pleasures
             </p>
             <label className="input input-bordered flex items-center gap-2">
               <svg
@@ -29,7 +26,7 @@ function Banner() {
               <input type="text" className="grow" placeholder="Email" />
             </label>
           </div>
-          <button className="btn btn-secondary mt-6">Secondary</button>
+          <button className="btn btn-secondary mt-6">Subscribe News Letter</button>
         </div>
         <div className=" order-1 w-full mt-20 md:w-1/2">
         <img src={banner} className="md:w-[550px] md:h-[460px] md:ml-12" alt="" />

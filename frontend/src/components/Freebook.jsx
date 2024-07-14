@@ -1,16 +1,30 @@
-import React from 'react'
-
+import React, { useState } from 'react'
+import { useEffect } from 'react';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
-
-import list from '../../public/list.json'
+import axios from "axios";
+// import list from '../../public/list.json'
 import Cards from './Cards';
 
 function Freebook() {
-  const filterData =  list.filter((data) => data.category === "Free");
+  // const filterData =  list.filter((data) => data.category === "Free");
   // console.log(filterData);
+  const [book, setBook] = useState([]);
+  useEffect(() => {
+    const getBook = async () => {
+      try {
+        const res = await axios.get("http://localhost:4001/book");
 
+        const data = res.data.filter((data) => data.category === "Free");
+        console.log(data);
+        setBook(data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    getBook();
+  }, []);
   var settings = {
     dots: true,
     infinite: false,
@@ -51,13 +65,12 @@ function Freebook() {
     <div className='max-w-screen-2xl container mx-auto md:px-20 px-4'>
       <div>
       <h1 className='font-semibold text-xl pb-2'>Free Offred courses</h1>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus voluptates tempora perspiciatis itaque blanditiis. Laboriosam architecto sint aspernatur fuga porro ducimus ab eveniet, temporibus, fugiat et sequi est, soluta molestiae.
-      Magnam  Ipsa laborum mollitia pariatur?</p>
+      <p>Welcome to our bookstore website, a haven where books open doors to endless possibilities. Explore a curated collection spanning genres from fiction to non-fiction, classics to contemporary bestsellers. Engage with our user-friendly interface for seamless browsing and discover your next great read.</p>
     </div>
     
     <div>
     <Slider {...settings}>
-        {filterData.map((item) =>(
+        {book.map((item) =>(
           <Cards item={item} key={item.id} />
         ))}
       </Slider>
